@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyperledger Fabric Client</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <nav class="navbar">
+      <h1>⚡ Hyperledger Fabric Client</h1>
+      <p>Blockchain Identity & Asset Manager</p>
+    </nav>
+
+    <main class="dashboard">
+      <!-- Wallet Status Section -->
+      <section class="panel glass">
+        <h2>🪪 Wallet Status</h2>
+        <div class="status-grid">
+          <div class="status-item">
+            <span>Admin:</span>
+            <span id="admin-status" class="status pending">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>App User:</span>
+            <span id="user-status" class="status pending">Checking...</span>
+          </div>
+        </div>
+        <button onclick="checkWalletStatus()" class="btn glow-secondary">
+          🔄 Refresh
+        </button>
+      </section>
+
+      <!-- Enrollment Section -->
+      <section class="panel glass">
+        <h2>👤 User Management</h2>
+        <div class="button-row">
+          <button onclick="enrollAdmin()" class="btn glow-primary">
+            🔐 Enroll Admin
+          </button>
+          <button onclick="registerUser()" class="btn glow-primary">
+            ➕ Register App User
+          </button>
+        </div>
+        <div id="enrollment-message" class="message"></div>
+      </section>
+
+      <!-- Query Assets Section -->
+      <section class="panel glass">
+        <h2>🔍 Query Assets</h2>
+        <button onclick="queryAssets()" class="btn glow-success">
+          📊 Get All Assets
+        </button>
+        <div id="query-result" class="result-box"></div>
+      </section>
+
+      <!-- Create Asset Section -->
+      <section class="panel glass">
+        <h2>🧱 Create New Asset</h2>
+        <form id="asset-form" onsubmit="createAsset(event)">
+          <div class="grid-form">
+            <input type="text" id="asset-id" placeholder="Asset ID" required />
+            <input type="text" id="asset-color" placeholder="Color" required />
+            <input
+              type="number"
+              id="asset-size"
+              placeholder="Size"
+              required
+            />
+            <input
+              type="text"
+              id="asset-owner"
+              placeholder="Owner"
+              required
+            />
+            <input
+              type="number"
+              id="asset-value"
+              placeholder="Appraised Value"
+              required
+            />
+          </div>
+          <button type="submit" class="btn glow-primary">
+            💾 Create Asset
+          </button>
+        </form>
+        <div id="create-message" class="message"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🔗 Powered by Hyperledger Fabric | Built with 💙</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
